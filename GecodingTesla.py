@@ -29,7 +29,7 @@ def GeocodeStreetLocationCity(data):
     lng=[]                            # initialize longitude list
     start = data.index[0]             # start from the first data
     end = data.index[maxRow-1]        # end at maximum number of row
-    for i in range(start,end+1,1):    # iterate all rows in the data
+    for i in range(start, end+1):# iterate all rows in the data
         isSuccess=True                # initial Boolean flag
         query = data.address[i] + ' ' + data.name[i] + ' ' + data.city[i]  # try set up our query street-location-city 
         result=Geocode(query)
@@ -48,7 +48,7 @@ def GeocodeStreetLocationCity(data):
                 print(i, result)
         else:
             print(i, result)
-        if isSuccess==True:           # if geocoding is successful,
+        if isSuccess:           # if geocoding is successful,
             # store the results
             lat.append(result[0])     # latitude
             lng.append(result[1])     # longitude
